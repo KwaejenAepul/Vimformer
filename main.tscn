@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbjx41dwwv1h3"]
+[gd_scene load_steps=4 format=3 uid="uid://cbjx41dwwv1h3"]
 
 [ext_resource type="PackedScene" uid="uid://v3u1ruiqjec0" path="res://tile_map.tscn" id="1_a3sal"]
 [ext_resource type="PackedScene" uid="uid://bk8vl1rx4cdbv" path="res://player.tscn" id="2_l4abl"]
 [ext_resource type="Script" path="res://playercam.gd" id="3_gg85f"]
-[ext_resource type="PackedScene" uid="uid://bwm1dv4ofgfs7" path="res://checkpoint.tscn" id="4_1c6ui"]
 
 [node name="main" type="Node"]
 
@@ -16,9 +15,3 @@ position = Vector2(104, 552)
 position = Vector2(1, -2)
 script = ExtResource("3_gg85f")
 tilemap = NodePath("../../TileMap")
-
-[node name="CheckPoint" parent="." instance=ExtResource("4_1c6ui")]
-position = Vector2(673, 544)
-
-[node name="CheckPoint2" parent="." instance=ExtResource("4_1c6ui")]
-position = Vector2(1241, 608)
