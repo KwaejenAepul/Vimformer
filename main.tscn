@@ -1,17 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbjx41dwwv1h3"]
+[gd_scene load_steps=2 format=3 uid="uid://cbjx41dwwv1h3"]
 
-[ext_resource type="PackedScene" uid="uid://v3u1ruiqjec0" path="res://tile_map.tscn" id="1_a3sal"]
-[ext_resource type="PackedScene" uid="uid://bk8vl1rx4cdbv" path="res://player.tscn" id="2_l4abl"]
-[ext_resource type="Script" path="res://playercam.gd" id="3_gg85f"]
+[ext_resource type="PackedScene" uid="uid://bsvos3sdx1y0c" path="res://main_menu.tscn" id="1_bepli"]
 
 [node name="main" type="Node"]
 
-[node name="TileMap" parent="." instance=ExtResource("1_a3sal")]
-
-[node name="player" parent="." instance=ExtResource("2_l4abl")]
-position = Vector2(1011, 231)
-
-[node name="Camera2D" type="Camera2D" parent="player" node_paths=PackedStringArray("tilemap")]
-position = Vector2(1, -2)
-script = ExtResource("3_gg85f")
-tilemap = NodePath("../../TileMap")
+[node name="main_menu" parent="." instance=ExtResource("1_bepli")]
