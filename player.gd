@@ -8,6 +8,7 @@ class_name Player
 @export var wallPushBack = 300
 
 var IN_WALL_JUMP: bool = false
+var pausemenu = preload("res://pause_menu.tscn").instantiate()
 
 func _ready():
 	Gamemanger.player  = self
@@ -27,9 +28,9 @@ func get_input():
 			IN_WALL_JUMP = false
 	if Input.is_action_just_pressed("pause"):
 		Gamemanger.player_state = Gamemanger.GAME_STATE.PAUSED
+		get_tree().root.add_child(pausemenu)
 
 func _physics_process(delta):
-	print(Gamemanger.player_state)
 	if Gamemanger.player_state == Gamemanger.GAME_STATE.UNPAUSED:
 		if  !is_on_floor():
 			if velocity.y > 0:
