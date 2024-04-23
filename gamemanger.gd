@@ -1,7 +1,12 @@
 extends Node
 
-var current_checkpoint
-var player
+enum GAME_STATE {PAUSED, UNPAUSED}
+
+var player_state = GAME_STATE.UNPAUSED
+
+var current_checkpoint: CheckPoint
+var player: Player
+
 
 func respawn_player():
     if current_checkpoint != null:

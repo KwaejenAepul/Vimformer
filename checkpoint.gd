@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name CheckPoint
+
 var spawnpoint = false
 var activated = false
 
