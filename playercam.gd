@@ -1,5 +1,6 @@
 extends Camera2D
 
+
 @export var tilemap: TileMap
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,3 +11,5 @@ func _ready():
 	#limit_top = 0
 	limit_right = worldSizeInPixels.x
 	limit_bottom = worldSizeInPixels.y
+
+	

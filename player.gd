@@ -9,9 +9,19 @@ class_name Player
 
 var IN_WALL_JUMP: bool = false
 var pausemenu = preload("res://pause_menu.tscn").instantiate()
+var state = Gamemanger.GAME_STATE.UNPAUSED
 
 func _ready():
 	Gamemanger.player  = self
+
+func load_pause_menu():
+	if Gamemanger.player_state == Gamemanger.GAME_STATE.PAUSED && state == Gamemanger.GAME_STATE.UNPAUSED:
+		state = Gamemanger.GAME_STATE.PAUSED
+		add_child(pausemenu)
+	elif Gamemanger.player_state == Gamemanger.GAME_STATE.UNPAUSED && state == Gamemanger.GAME_STATE.PAUSED:
+		state = Gamemanger.GAME_STATE.UNPAUSED
+		remove_child(pausemenu)
+
 
 func get_input():
 	var input_direction = Input.get_axis("left", "right")
@@ -28,7 +38,6 @@ func get_input():
 			IN_WALL_JUMP = false
 	if Input.is_action_just_pressed("pause"):
 		Gamemanger.player_state = Gamemanger.GAME_STATE.PAUSED
-		get_tree().root.add_child(pausemenu)
 
 func _physics_process(delta):
 	if Gamemanger.player_state == Gamemanger.GAME_STATE.UNPAUSED:
@@ -37,6 +46,7 @@ func _physics_process(delta):
 				velocity.y += (gravity * 1.5) * delta
 			velocity.y += gravity * delta
 		get_input()
+		load_pause_menu()
 		move_and_slide()
 
 func _on_hurtbox_body_shape_entered(body_rid:RID, body:Node2D, _body_shape_index:int, _local_shape_index:int):
