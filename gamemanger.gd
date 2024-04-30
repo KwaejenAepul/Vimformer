@@ -4,6 +4,8 @@ enum GAME_STATE {PAUSED, UNPAUSED}
 
 var player_state = GAME_STATE.UNPAUSED
 
+var deathcount = 0
+
 var current_checkpoint: CheckPoint
 var player: Player
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk8vl1rx4cdbv"]
+[gd_scene load_steps=7 format=3 uid="uid://bk8vl1rx4cdbv"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bddtn"]
 [ext_resource type="Texture2D" uid="uid://bia4ilgv145u" path="res://assets/playercube.png" id="1_fychq"]
+[ext_resource type="AudioStream" uid="uid://blinw00an145l" path="res://assets/jump.wav" id="3_u7m45"]
+[ext_resource type="AudioStream" uid="uid://drwdgo0kvujk" path="res://assets/hitHurt.wav" id="4_7mwa5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oiv52"]
 size = Vector2(26, 26)
@@ -23,5 +25,13 @@ shape = SubResource("RectangleShape2D_oiv52")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 shape = SubResource("RectangleShape2D_iwyak")
+
+[node name="jumpsfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u7m45")
+volume_db = -5.0
+
+[node name="deathsfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7mwa5")
+volume_db = -5.0
 
 [connection signal="body_shape_entered" from="hurtbox" to="." method="_on_hurtbox_body_shape_entered"]
